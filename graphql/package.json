@@ -1,0 +1,47 @@
+{
+  "name": "create-graphql-app-graphql",
+  "version": "0.1.0",
+  "description": "The graphql server for create-graphql-app",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node -r dotenv/config ./dist/index.js",
+    "dev": "PORT=3010 ./startDev.sh",
+    "test": "jest",
+    "build": "NODE_ENV=production tsc",
+    "deploy": "yarn build && gcloud app deploy --project=create-graphql-app"
+  },
+  "dependencies": {
+    "apollo-server": "^2.4.8",
+    "dotenv": "^7.0.0",
+    "graphql": "^14.2.1",
+    "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/graphql": "^14.2.0",
+    "@types/jest": "^24.0.11",
+    "@types/zen-observable": "^0.8.0",
+    "jest": "^24.7.1",
+    "nodemon": "^1.18.11",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.4.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/?(*.)+(spec|test).(js|ts)"
+    ]
+  },
+  "license": "MIT"
+}
