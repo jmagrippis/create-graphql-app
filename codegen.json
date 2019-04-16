@@ -4,6 +4,9 @@
   "generates": {
     "./graphql/src/types.ts": {
       "plugins": ["typescript"]
+    },
+    "./web/src/types.ts": {
+      "plugins": ["typescript", "typescript-operations"]
     }
   }
 }
