@@ -1,0 +1,9 @@
+steps:
+  - name: 'gcr.io/cloud-builders/yarn'
+    args: ['install']
+  - name: 'gcr.io/cloud-builders/yarn'
+    args: ['build']
+    env: ['GRAPHQL_URL=https://create-graphql-app.appspot.com']
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['app', 'deploy']
+timeout: '1600s'

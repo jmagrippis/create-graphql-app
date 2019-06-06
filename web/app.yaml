@@ -1,4 +1,2 @@
 runtime: nodejs10
 service: default
-env_variables:
-  GRAPHQL_URL: 'https://create-graphql-app.appspot.com'
