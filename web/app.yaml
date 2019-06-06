@@ -1,2 +1,13 @@
 runtime: nodejs10
 service: default
+
+handlers:
+  - url: /(.*\.(css|eot|gz|html|ico|js|map|png|svg|ttf|woff|woff2))
+    static_files: dist/\1
+    upload: dist/(.*\.(css|eot|gz|html|ico|js|map|png|svg|ttf|woff|woff2))
+
+  - url: /.*
+    static_files: dist/index.html
+    upload: dist/index.html
+    secure: always
+    expiration: '1m'
