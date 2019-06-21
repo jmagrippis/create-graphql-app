@@ -1,18 +1,16 @@
 {
-  "name": "create-graphql-app-graphql",
-  "version": "0.1.0",
-  "description": "The graphql server for create-graphql-app",
+  "name": "graphql-accounts",
+  "description": "The accounts graphql microservice for create-graphql-app",
   "main": "dist/index.js",
   "scripts": {
     "start": "node -r dotenv/config ./dist/index.js",
-    "dev": "PORT=3010 ./startDev.sh",
+    "dev": "PORT=3012 ./startDev.sh",
     "test": "jest",
     "build": "NODE_ENV=production tsc",
     "deploy": "yarn build && gcloud app deploy --project=create-graphql-app"
   },
   "dependencies": {
     "@apollo/federation": "latest",
-    "@apollo/gateway": "^0.6.7",
     "apollo-server": "latest",
     "dotenv": "^8.0.0",
     "graphql": "latest"
@@ -26,23 +24,5 @@
     "nodemon": "^1.19.0",
     "ts-jest": "^24.0.2",
     "typescript": "^3.4.5"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "ts",
-      "js"
-    ],
-    "transform": {
-      "^.+\\.ts$": "ts-jest"
-    },
-    "globals": {
-      "ts-jest": {
-        "tsConfig": "tsconfig.json"
-      }
-    },
-    "testMatch": [
-      "**/?(*.)+(spec|test).(js|ts)"
-    ]
-  },
-  "license": "MIT"
+  }
 }

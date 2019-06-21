@@ -6,15 +6,20 @@ export type Scalars = {
   Boolean: boolean
   Int: number
   Float: number
+  /** The `Upload` scalar type represents a file upload. */
+  Upload: any
+}
+
+export enum CacheControlScope {
+  Public = 'PUBLIC',
+  Private = 'PRIVATE'
 }
 
 export type Query = {
   __typename?: 'Query'
-  me?: Maybe<User>
+  greeting: Scalars['String']
 }
 
-export type User = {
-  __typename?: 'User'
-  id: Scalars['ID']
-  email: Scalars['String']
+export type QueryGreetingArgs = {
+  name?: Maybe<Scalars['String']>
 }
