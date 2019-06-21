@@ -20,5 +20,5 @@ import { resolvers } from './resolvers'
 
   const { url } = await server.listen({ port: process.env.PORT })
 
-  console.log(`🚀 graphql server ready at ${url}`)
+  console.log(`🚀 accounts server ready at ${url}`)
 })()

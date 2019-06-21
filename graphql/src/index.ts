@@ -23,5 +23,5 @@ const gateway = new ApolloGateway({
 
   const { url } = await server.listen({ port: process.env.PORT })
 
-  console.log(`🚀 graphql server ready at ${url}`)
+  console.log(`🚀 graphql gateway ready at ${url}`)
 })()
