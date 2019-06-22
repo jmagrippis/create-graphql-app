@@ -1,2 +1,4 @@
 runtime: nodejs10
 service: graphql
+env_variables:
+  GRAPHQL_ACCOUNTS_URL: 'https://graphql-dot-accounts-create-graphql-app.appspot.com'

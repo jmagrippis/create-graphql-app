@@ -6,9 +6,12 @@
   "scripts": {
     "start": "node -r dotenv/config ./dist/index.js",
     "dev": "PORT=3010 tsc-watch --onSuccess \"yarn start\"",
+    "dev-service-accounts": "cd services/accounts && yarn dev",
+    "dev-all-services": "concurrently \"yarn:dev-service-*\"",
     "test": "jest",
     "build": "NODE_ENV=production tsc",
-    "deploy": "yarn build && gcloud app deploy --project=create-graphql-app"
+    "deploy": "yarn build && gcloud app deploy --project=create-graphql-app",
+    "postinstall": "lerna bootstrap"
   },
   "dependencies": {
     "@apollo/federation": "latest",
@@ -22,7 +25,9 @@
     "@types/graphql": "^14.2.0",
     "@types/jest": "^24.0.13",
     "@types/zen-observable": "^0.8.0",
+    "concurrently": "latest",
     "jest": "^24.8.0",
+    "lerna": "latest",
     "ts-jest": "^24.0.2",
     "tsc-watch": "^2.2.1",
     "typescript": "^3.4.5"

@@ -2,11 +2,15 @@
 
 Boilerplate for quick scaffolding of a [Typescript][] [GraphQL][] [Apollo][] server in a monorepo, with automatic typescript type generation via the [Graphql code generator][] and code formatting via [prettier][].
 
+That GraphQL schema is stitched together from multiple microservices in a gateway using [Apollo Federation][]. These microservices are bootstrapped using [Lerna][]
+
 [typescript]: https://www.typescriptlang.org/ 'So hot right now'
 [graphql]: https://graphql.org/ 'A query language for your API'
 [graphql code generator]: https://graphql-code-generator.com 'Works better than the apollo codegen!'
 [apollo]: https://www.apollographql.com/ 'Do GraphQL right!'
 [prettier]: https://prettier.io/ 'I wish every language had a prettier'
+[apollo federation]: https://blog.apollographql.com/apollo-federation-f260cf525d21 'Because nobody likes a schema file that is thousands of lines long'
+[lerna]: https://github.com/lerna/lerna 'A tool for managing JavaScript projects with multiple packages.'
 
 ## Usage
 
@@ -18,12 +22,26 @@ yarn
 
 cd graphql
 yarn
+yarn dev-all-services
+```
+
+This should start all the graphql microservices. Then, in another terminal:
+
+```sh
+cp .env.test .env
+```
+
+This creates the `.env` file you need for the GraphQL gateway to know where each microservice lives. Finally, run:
+
+```sh
 yarn dev
 ```
 
-After the initial typescript compilation, you should be able to see the playground running on http://localhost:3010 🚀
+This should get the gateway running, and you will be able to see the playground on http://localhost:3010 🚀
 
-The project will auto recompile and reload on every code change. Give it a whirl!
+The project will auto recompile and reload on every code change in any microservice or the gateway itself. Give it a whirl!
+
+This is where the `web` project connects, using Apollo Client. You may start that one by going into its directory and running `yarn dev`, then hitting http://localhost:3011 to see some sample UI.
 
 ## Testing
 
